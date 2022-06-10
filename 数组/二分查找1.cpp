@@ -116,3 +116,26 @@ public:
     }
 };
 
+//Leetcode--367--Easy
+//给定一个正整数，判断是否是完全平方数，是的话  返回 true
+/*案例
+输入：num = 16
+输出：true
+输入：num = 14
+输出：false
+ */
+class Solution {
+public:
+    bool isPerfectSquare(int num) {
+        int left = 0, right = num;
+        while(left <= right){
+            int middle = left + (right - left)/2;
+            if((long long)middle*middle <= num) left = middle + 1;
+            else right = middle -1;
+        }
+        if((left - 1)*(left - 1) == num)
+        return true;
+        else return false;
+
+    }
+};
